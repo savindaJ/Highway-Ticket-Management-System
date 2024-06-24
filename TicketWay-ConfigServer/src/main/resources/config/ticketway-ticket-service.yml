@@ -1,0 +1,15 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /api/v1/ticket
+
+spring:
+  application:
+    name: ticketway-ticket-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+

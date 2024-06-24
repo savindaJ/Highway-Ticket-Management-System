@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8080
 
 spring:
   application:
@@ -8,15 +8,22 @@ spring:
     gateway:
       mvc:
         routes:
-          - id: item-service
+          - id: user-service
             uri: lb://ticketway-user-service
             predicates:
               - Path=/api/v1/users/**
-#          - id: customer-service
-#            uri: lb://SPRINGBOOT-CUSTOMER-SERVICES
-#            predicates:
-#              - Path=/api/v1/customer/**
-
+          - id: payment-service
+            uri: lb://ticketway-payment-service
+            predicates:
+              - Path=/api/v1/payment/**
+          - id: vehicle-service
+            uri: lb://ticketway-vehicle-service
+            predicates:
+              - Path=/api/v1/vehicle/**
+          - id: ticket-service
+            uri: lb://ticketway-ticket-service
+            predicates:
+              - Path=/api/v1/ticket/**
 
 eureka:
   client:
