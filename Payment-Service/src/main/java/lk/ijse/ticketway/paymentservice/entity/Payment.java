@@ -1,4 +1,4 @@
-package lk.ijse.ticketway.userservice.entity;
+package lk.ijse.ticketway.paymentservice.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Date;
 
 /**
  * @author : savindaJ
@@ -19,14 +21,16 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String password;
-    private String contact;
-    private String address;
-    private String nic;
+    private String paymentId;
+    private String paymentType;
+    private String paymentAmount;
+    private String paymentDate;
+    private String paymentTime;
+    private String paymentStatus;
+    private String paymentLocation;
+    private Date date;
 }

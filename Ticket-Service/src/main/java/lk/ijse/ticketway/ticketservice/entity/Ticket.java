@@ -1,4 +1,4 @@
-package lk.ijse.ticketway.userservice.entity;
+package lk.ijse.ticketway.ticketservice.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,14 +19,16 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String password;
-    private String contact;
-    private String address;
-    private String nic;
+    private String ticketId;
+    private String ticketType;
+    private String ticketPrice;
+    private String ticketQty;
+    private String ticketDate;
+    private String ticketTime;
+    private String ticketStatus;
+    private String ticketLocation;
 }
