@@ -3,4 +3,3 @@ spring:
     name: ticketway-user-service
   config:
     import: "optional:configserver:http://localhost:8084"
-

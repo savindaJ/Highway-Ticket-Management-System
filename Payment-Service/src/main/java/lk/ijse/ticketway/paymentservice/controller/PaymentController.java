@@ -1,5 +1,6 @@
 package lk.ijse.ticketway.paymentservice.controller;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/actions")
 public class PaymentController {
 
-    @RequestMapping("/add")
+    @PostMapping("/validate")
     public String add() {
         return "Add";
     }
 
-    @RequestMapping("/update")
+    @PostMapping("/process")
     public String update() {
         return "Update";
     }

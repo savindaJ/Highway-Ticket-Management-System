@@ -1,7 +1,6 @@
 package lk.ijse.ticketway.ticketservice.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author : savindaJ
@@ -12,14 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/actions")
 public class TicketController {
 
-    @RequestMapping("/add")
+    @PostMapping("/save")
     public String add() {
         return "Add";
     }
 
-    @RequestMapping("/update")
+    @PutMapping("/update")
     public String update() {
         return "Update";
+    }
+
+    @GetMapping
+    public String get() {
+        return "Get";
     }
 
 }
