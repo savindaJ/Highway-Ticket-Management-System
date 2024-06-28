@@ -1,5 +1,8 @@
 package lk.ijse.ticketway.ticketservice.controller;
 
+import lk.ijse.ticketway.ticketservice.dto.TicketDTO;
+import lk.ijse.ticketway.ticketservice.service.TicketService;
+import lk.ijse.ticketway.ticketservice.util.ResponseDTO;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -11,19 +14,38 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/actions")
 public class TicketController {
 
+    private final TicketService ticketService;
+
+    public TicketController(TicketService ticketService) {
+        this.ticketService = ticketService;
+    }
+
     @PostMapping("/save")
-    public String add() {
-        return "Add";
+    public ResponseDTO add(@RequestBody TicketDTO ticketDTO) {
+        try {
+            return ticketService.save(ticketDTO);
+        } catch (Exception e) {
+            return new ResponseDTO(e.getMessage(), 500);
+
+        }
     }
 
     @PutMapping("/update")
-    public String update() {
-        return "Update";
+    public ResponseDTO update(@RequestBody TicketDTO ticketDTO) {
+        try {
+            return ticketService.update(ticketDTO);
+        } catch (Exception e) {
+            return new ResponseDTO(e.getMessage(), 500);
+        }
     }
 
     @GetMapping
-    public String get() {
-        return "Get";
+    public ResponseDTO get() {
+        try {
+            return ticketService.getAll();
+        } catch (Exception e) {
+            return new ResponseDTO(e.getMessage(), 500);
+        }
     }
 
 }
