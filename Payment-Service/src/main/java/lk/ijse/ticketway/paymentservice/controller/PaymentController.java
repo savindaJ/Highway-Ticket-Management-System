@@ -1,6 +1,8 @@
 package lk.ijse.ticketway.paymentservice.controller;
 
+import lk.ijse.ticketway.paymentservice.dto.PaymentDTO;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaymentController {
 
     @PostMapping("/validate")
-    public String add() {
+    public String add(@RequestBody PaymentDTO paymentDTO) {
         return "Add";
     }
 
     @PostMapping("/process")
-    public String update() {
+    public String update(@RequestBody PaymentDTO paymentDTO) {
         return "Update";
     }
 }

@@ -2,5 +2,5 @@ spring:
   application:
     name: ticketway-payment-service
   config:
-    import: "optional:configserver:http://localhost:8084"
+    import: "optional:configserver:http://192.168.213.174:8084"
 
