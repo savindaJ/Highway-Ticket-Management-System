@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Date;
 
 /**
  * @author : savindaJ
@@ -18,17 +18,19 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String password;
-    private String contact;
-    private String address;
-    private String nic;
+    private String paymentId;
+    private String paymentType;
+    private String paymentAmount;
+    private String paymentDate;
+    private String paymentTime;
+    private String paymentStatus;
+    private String paymentLocation;
+    private Date date;
 
-    @OneToMany(mappedBy = "user")
-    private List<Ticket> tickets;
+    @OneToOne(mappedBy = "payment")
+    private Ticket ticket;
 }

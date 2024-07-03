@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 /**
  * @author : savindaJ
  * @date : 2024-07-01
@@ -14,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class VehicleDTO {
     private Long id;
-    private String vehicleId;
+    private String vehicleNumber;
     private String vehicleType;
     private String vehicleBrand;
     private String vehicleModel;
@@ -24,9 +26,7 @@ public class VehicleDTO {
     private String vehicleTransmissionType;
     private String vehicleEngineCapacity;
     private String vehicleMileage;
-    private String vehiclePrice;
     private String vehicleStatus;
     private String vehicleLocation;
-    private String vehicleDate;
-    private String vehicleTime;
+    private Timestamp vehicleTime;
 }

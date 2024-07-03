@@ -47,4 +47,10 @@ public class UserServiceImpl implements UserService {
         });
         logger.info("User Updated Successfully");
     }
+
+    @Override
+    public UserDTO getUser(String email) {
+        User byName = userRepository.findByEmail(email);
+        return mapper.map(byName, UserDTO.class);
+    }
 }

@@ -1,4 +1,4 @@
-package lk.ijse.ticketway.vehicleservice.entity;
+package lk.ijse.ticketway.configserver.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -8,6 +8,7 @@ import lk.ijse.ticketway.vehicleservice.util.ResponseDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -49,5 +50,18 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public List<VehicleDTO> getAllVehicles() {
         return vehicleRepository.findAll().stream().map(vehicle -> mapper.map(vehicle, VehicleDTO.class)).toList();
+    }
+
+    @Override
+    public ResponseDTO getVehicle(String id) {
+        try {
+            Vehicle vehicle = vehicleRepository.findByVehicleNumber(id);
+            HashMap<String, Object> objectObjectHashMap = new HashMap<>();
+            VehicleDTO map = mapper.map(vehicle, VehicleDTO.class);
+            objectObjectHashMap.put("vehicle", map);
+            return new ResponseDTO(200,"Vehicle Fetch Successfully" , objectObjectHashMap);
+        } catch (Exception e) {
+            return new ResponseDTO(e.getMessage(), 500);
+        }
     }
 }

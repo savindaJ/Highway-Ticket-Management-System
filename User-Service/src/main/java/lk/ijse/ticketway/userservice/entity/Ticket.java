@@ -18,17 +18,25 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String password;
-    private String contact;
-    private String address;
-    private String nic;
+    private String ticketId;
+    private String ticketType;
+    private String ticketPrice;
+    private String ticketQty;
+    private String ticketDate;
+    private String ticketTime;
+    private String ticketStatus;
+    private String ticketLocation;
 
-    @OneToMany(mappedBy = "user")
-    private List<Ticket> tickets;
+    @ManyToOne
+    private User user;
+
+    @OneToOne
+    private Payment payment;
+
+    @OneToMany(mappedBy = "ticket")
+    private List<Vehicle> vehicle;
 }

@@ -16,4 +16,6 @@ public interface VehicleService {
     ResponseDTO updateVehicle(VehicleDTO vehicleDTO);
 
     List<VehicleDTO> getAllVehicles();
+
+    ResponseDTO getVehicle(String id);
 }

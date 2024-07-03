@@ -14,4 +14,6 @@ public interface UserService {
     boolean loginUser(LoginDTO loginDTO);
 
     void updateUser(UserDTO userDTO);
+
+    UserDTO getUser(String email);
 }

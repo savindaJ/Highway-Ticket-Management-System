@@ -22,6 +22,7 @@ public class TicketController {
 
     @PostMapping("/save")
     public ResponseDTO add(@RequestBody TicketDTO ticketDTO) {
+        System.out.println(ticketDTO.toString());
         try {
             return ticketService.save(ticketDTO);
         } catch (Exception e) {

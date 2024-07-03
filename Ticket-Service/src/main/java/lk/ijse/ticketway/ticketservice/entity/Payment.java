@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 /**
  * @author : savindaJ
  * @date : 2024-06-24
@@ -16,25 +18,19 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Ticket {
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String ticketId;
-    private String ticketType;
-    private String ticketPrice;
-    private String ticketQty;
-    private String ticketDate;
-    private String ticketTime;
-    private String ticketStatus;
-    private String ticketLocation;
+    private String paymentId;
+    private String paymentType;
+    private String paymentAmount;
+    private String paymentDate;
+    private String paymentTime;
+    private String paymentStatus;
+    private String paymentLocation;
+    private Date date;
 
-    @ManyToOne
-    private User user;
-
-    @OneToOne
-    private Payment payment;
-
-    @ManyToOne
-    private Vehicle vehicle;
+    @OneToOne(mappedBy = "payment")
+    private Ticket ticket;
 }

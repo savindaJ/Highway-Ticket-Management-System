@@ -50,4 +50,14 @@ public class VehicleController {
             return new ResponseDTO(e.getMessage(), 500);
         }
     }
+
+    @GetMapping("/get-vehicle/{id}")
+    public ResponseDTO getVehicle(@PathVariable String id) {
+        System.out.println(id);
+        try {
+            return vehicleService.getVehicle(id);
+        } catch (Exception e) {
+            return new ResponseDTO(e.getMessage(), 500);
+        }
+    }
 }

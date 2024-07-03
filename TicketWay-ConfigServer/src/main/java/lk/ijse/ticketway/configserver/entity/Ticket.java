@@ -1,10 +1,12 @@
-package lk.ijse.ticketway.ticketservice.entity;
+package lk.ijse.ticketway.configserver.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * @author : savindaJ
@@ -35,6 +37,6 @@ public class Ticket {
     @OneToOne
     private Payment payment;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Vehicle vehicle;
 }
