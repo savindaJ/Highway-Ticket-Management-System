@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * @author : savindaJ
@@ -22,6 +23,8 @@ public class VehicleServiceImpl implements VehicleService {
     private final VehicleRepository vehicleRepository;
     private final ModelMapper mapper;
 
+    private final Logger logger = Logger.getLogger(VehicleServiceImpl.class.getName());
+
     public VehicleServiceImpl(VehicleRepository vehicleRepository, ModelMapper mapper) {
         this.vehicleRepository = vehicleRepository;
         this.mapper = mapper;
@@ -31,8 +34,10 @@ public class VehicleServiceImpl implements VehicleService {
     public ResponseDTO registerVehicle(VehicleDTO vehicleDTO) {
         try {
             vehicleRepository.save(mapper.map(vehicleDTO, Vehicle.class));
+            logger.info("Vehicle Registered Successfully");
             return new ResponseDTO("Vehicle Registered Successfully", 200);
         } catch (Exception e) {
+            logger.severe(e.getMessage());
             return new ResponseDTO(e.getMessage(), 500);
         }
     }
@@ -41,8 +46,10 @@ public class VehicleServiceImpl implements VehicleService {
     public ResponseDTO updateVehicle(VehicleDTO vehicleDTO) {
         try {
             vehicleRepository.save(mapper.map(vehicleDTO, Vehicle.class));
+            logger.info("Vehicle Updated Successfully");
             return new ResponseDTO("Vehicle Updated Successfully", 200);
         } catch (Exception e) {
+            logger.severe(e.getMessage());
             return new ResponseDTO(e.getMessage(), 500);
         }
     }
@@ -59,8 +66,10 @@ public class VehicleServiceImpl implements VehicleService {
             HashMap<String, Object> objectObjectHashMap = new HashMap<>();
             VehicleDTO map = mapper.map(vehicle, VehicleDTO.class);
             objectObjectHashMap.put("vehicle", map);
+            logger.info("Vehicle Fetch Successfully");
             return new ResponseDTO(200,"Vehicle Fetch Successfully" , objectObjectHashMap);
         } catch (Exception e) {
+            logger.severe(e.getMessage());
             return new ResponseDTO(e.getMessage(), 500);
         }
     }
