@@ -49,4 +49,13 @@ public class TicketController {
         }
     }
 
+    @GetMapping("/get-ticket/{id}")
+    public ResponseDTO getTicket(@PathVariable Long id) {
+        try {
+            return ticketService.getTicket(id);
+        } catch (Exception e) {
+            return new ResponseDTO(e.getMessage(), 500);
+        }
+    }
+
 }

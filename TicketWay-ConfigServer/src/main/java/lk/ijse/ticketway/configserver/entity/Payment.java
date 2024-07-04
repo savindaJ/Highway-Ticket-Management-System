@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -24,13 +26,14 @@ public class Payment {
     private Long id;
     private String paymentId;
     private String paymentType;
-    private String paymentAmount;
-    private String paymentDate;
+    private Double paymentAmount;
     private String paymentTime;
     private String paymentStatus;
     private String paymentLocation;
-    private Date date;
+    @CreationTimestamp
+    private Timestamp date;
 
-    @OneToOne(mappedBy = "payment")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ticket_id", referencedColumnName = "id")
     private Ticket ticket;
 }

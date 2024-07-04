@@ -74,4 +74,13 @@ public class TicketServiceImpl implements TicketService {
         objectObjectHashMap.put("tickets", all);
         return new ResponseDTO(200, "Ticket fetched successfully", objectObjectHashMap);
     }
+
+    @Override
+    public ResponseDTO getTicket(Long id) {
+        Ticket ticket = ticketRepository.findById(id).get();
+        HashMap<String, Object> objectObjectHashMap = new HashMap<>();
+        TicketDTO map = mapper.map(ticket, TicketDTO.class);
+        objectObjectHashMap.put("ticket", map);
+        return new ResponseDTO(200, "Ticket fetched successfully", objectObjectHashMap);
+    }
 }
